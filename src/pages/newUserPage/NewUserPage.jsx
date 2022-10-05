@@ -1,11 +1,39 @@
-import "./NewPage.scss";
+import "./NewUserPage.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import DriveFolderUploadeOutLinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
+import axios from "axios";
+import { userInputs } from "../../formSource";
+import { useNavigate } from "react-router-dom";
 
-const NewPage = ({inputs, title}) => {
+const NewPage = () => {
     const [file, setFile] = useState("");
+    const [info, setInfo] = useState({});
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setInfo(prev => ({...prev, [e.target.id]: e.target.value}))
+    };
+
+    const handleClick = async (e) => {
+        e.preventDefault();
+        const data = new FormData();
+        data.append("file", file);
+        data.append("upload_preset", "upload");
+
+        try {
+            const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/dmydn76la/image/upload", data);
+            const { url } = uploadRes.data;
+
+            const newUser = { ...info, img: url};
+            await axios.post("/v1/auth/signup", newUser);
+            navigate("/users");
+        }
+        catch (err) {
+            console.log(err);  
+        }
+    }
 
     return (
         <div className="newPage">
@@ -13,7 +41,7 @@ const NewPage = ({inputs, title}) => {
             <div className="newContainer">
                 <Navbar/>
                 <div className="top">
-                    <h1>{title}</h1>
+                    <h1>Add new user</h1>
                 </div>
                 <div className="bottom">
                     <div className="left">
@@ -26,14 +54,14 @@ const NewPage = ({inputs, title}) => {
                                 <input type="file" id="file" onChange={e=>(setFile(e.target.files[0]))} style={{display : "none"}}/>
                             </div>
 
-                            {inputs.map(input => (
+                            {userInputs.map(input => (
                                 <div className="formInput" key={input.id}>
                                     <label>{input.label}</label>
-                                    <input type={input.type} placeholder={input.placeholder}/>
+                                    <input onChange={handleChange} type={input.type} placeholder={input.placeholder} id={input.id}/>
                                 </div>
                             ))}
 
-                            <button>Send</button>
+                            <button onClick={handleClick}>Send</button>
                         </form>
                     </div>
                 </div>

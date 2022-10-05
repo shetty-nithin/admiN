@@ -1,58 +1,68 @@
 import "./Widget.scss";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
+import ApartmentIcon from '@mui/icons-material/Apartment';
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import HotelIcon from '@mui/icons-material/Hotel';
+import { useNavigate } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
+import { useEffect, useState } from "react";
 
 const Widget = ({type}) => {
-    let data;
+    const navigate = useNavigate();
 
-    //temporary
-    const amount = 10;
+    const [count, setCount] = useState([]);
+    const { data } = useFetch(`/v1/${type}`);
+
+    useEffect(() => {
+        setCount(data);
+    }, [data]);
+
+
+    let widgetData;
     const percentage = 20;
     
     switch(type){
-        case "user" : 
-            data = {
+        case "users" : 
+        widgetData = {
                 title : "USERS",
                 isMoney : false,
-                link : "View all users",
+                link : "view all users",
                 icon : (
                     <PersonOutlinedIcon className="icon" style={{color : "crimson", backgroundColor : "rgba(255, 0, 0, 0.2)"}}/>
                 )
             }
             break;
         
-        case "order" : 
-        data = {
-            title : "ORDERS",
+        case "hotels" : 
+        widgetData = {
+            title : "HOTELS",
             isMoney : false,
-            link : "View all orders",
+            link : "view all orders",
+            icon : (
+                <ApartmentIcon className="icon" style={{color : "purple", backgroundColor : "rgba(128, 0, 128, 0.2)"}}/>
+            )
+        }
+        break;
+
+        case "rooms" : 
+        widgetData = {
+            title : "ROOMS",
+            isMoney : true,
+            link : "view all rooms",
+            icon : (
+                <HotelIcon className="icon" style={{color : "green", backgroundColor : "rgba(0, 128, 0, 0.2)"}}/>
+            )
+        }
+        break;
+
+        case "bookings" : 
+        widgetData = {
+            title : "BOOKINGS",
+            isMoney : true,
+            link : "view all booking",
             icon : (
                 <ShoppingCartOutlinedIcon className="icon" style={{color : "goldenrod", backgroundColor : "rgba(218, 165, 32, 0.2)"}}/>
-            )
-        }
-        break;
-
-        case "earning" : 
-        data = {
-            title : "EARNINGS",
-            isMoney : true,
-            link : "View all earnings",
-            icon : (
-                <MonetizationOnOutlinedIcon className="icon" style={{color : "green", backgroundColor : "rgba(0, 128, 0, 0.2)"}}/>
-            )
-        }
-        break;
-
-        case "balance" : 
-        data = {
-            title : "BALANCE",
-            isMoney : true,
-            link : "See all details",
-            icon : (
-                <AccountBalanceWalletOutlinedIcon className="icon" style={{color : "purple", backgroundColor : "rgba(128, 0, 128, 0.2)"}}/>
             )
         }
         break;
@@ -64,16 +74,16 @@ const Widget = ({type}) => {
     return (
         <div className="widget">
             <div className="left">
-                <span className="title">{data.title}</span>
-                <span className="counter">{data.isMoney && "$"} {amount}</span>
-                <span className="link">{data.link}</span>
+                <span className="title">{widgetData.title}</span>
+                <span className="counter">{count.length}</span>
+                <span className="link" onClick={() => navigate(`/${type}`)}>{widgetData.link}</span>
             </div>
             <div className="right">
                 <div className="percentage positive">
                     <KeyboardArrowUpIcon/>
                     {percentage}%
                 </div>
-                {data.icon}
+                {widgetData.icon}
             </div>
         </div>
     )

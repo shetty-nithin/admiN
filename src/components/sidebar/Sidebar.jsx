@@ -1,9 +1,8 @@
 import "./Sidebar.scss";
+
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Person3OutlinedIcon from '@mui/icons-material/Person3Outlined';
-import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
-import ViewStreamOutlinedIcon from '@mui/icons-material/ViewStreamOutlined';
-import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined';
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import HealthAndSafetyOutlinedIcon from '@mui/icons-material/HealthAndSafetyOutlined';
@@ -11,11 +10,13 @@ import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import HotelIcon from '@mui/icons-material/Hotel';
+import ApartmentIcon from '@mui/icons-material/Apartment';
+
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 
-// import {DashboardIcon, Person3OutlinedIcon, ProductionQuantityLimitsOutlinedIcon, ViewStreamOutlinedIcon, LocalShippingOutlinedIcon, QueryStatsOutlinedIcon, NotificationsActiveOutlinedIcon, HealthAndSafetyOutlinedIcon, PsychologyOutlinedIcon, SettingsOutlinedIcon, AccountCircleOutlinedIcon, ExitToAppOutlinedIcon} from '@mui/icons-material';
 
 
 const Sidebar = () => {
@@ -43,22 +44,22 @@ const Sidebar = () => {
                             <span>Users</span>
                         </li>
                     </Link>
-                    <Link to="/products" style={{textDecoration:"none"}}>
+                    <Link to="/hotels" style={{textDecoration:"none"}}>
                         <li>
-                            <ProductionQuantityLimitsOutlinedIcon className="icon"/>
-                            <span>Products</span>
+                            <ApartmentIcon className="icon"/>
+                            <span>Hotels</span>
                         </li>
                     </Link>
-                    <Link to="/orders" style={{textDecoration:"none"}}>
+                    <Link to="/rooms" style={{textDecoration:"none"}}>
                         <li>
-                            <ViewStreamOutlinedIcon className="icon"/>
-                            <span>Orders</span>
+                            <HotelIcon className="icon"/>
+                            <span>Rooms</span>
                         </li>
                     </Link>
-                    <Link to="/Delivery" style={{textDecoration:"none"}}>
+                    <Link to="/bookings" style={{textDecoration:"none"}}>
                         <li>
-                            <LocalShippingOutlinedIcon className="icon"/>
-                            <span>Delivery</span>
+                            <BookOnlineIcon className="icon"/>
+                            <span>Bookings</span>
                         </li>
                     </Link>
                     <p className="title">USEFUL</p>
@@ -88,10 +89,12 @@ const Sidebar = () => {
                         <AccountCircleOutlinedIcon className="icon"/>
                         <span>Profile</span>
                     </li>
-                    <li>
-                        <ExitToAppOutlinedIcon className="icon"/>
-                        <span>Logout</span>
-                    </li>
+                    <Link to="/login" style={{textDecoration:"none"}}>
+                        <li>
+                            <ExitToAppOutlinedIcon className="icon"/>
+                            <span onClick={() => localStorage.removeItem("user")}>Logout</span>
+                        </li>
+                    </Link>
                 </ul>
             </div>
             <div className="bottom">

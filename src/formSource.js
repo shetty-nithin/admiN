@@ -1,76 +1,116 @@
 export const userInputs = [
     {
-        id: 1,
+        id: "username",
         label: "Username",
         type: "text",
         placeholder: "john_doe"
     },
     {
-        id: 2,
-        label: "Name and Surname",
-        type: "text",
-        placeholder: "John Doe"
-    },
-    {
-        id: 3,
+        id: "email",
         label: "Email",
         type: "email",
-        placeholder: "john_doe@gmail.com"
+        placeholder: "John_doe@gmail.com"
     },
     {
-        id: 4,
+        id: "phone",
         label: "Phone",
         type: "text",
-        placeholder: "+91 9876543210"
+        placeholder: "+12 3456789011"
     },
     {
-        id: 5,
+        id: "password",
         label: "Password",
         type: "password",
     },
     {
-        id: 6,
-        label: "Address",
-        type: "text",
-        placeholder: "Bengaluru, Karnataka"
-    },
-    {
-        id: 7,
-        label: "Country",
+        id: "contry",
+        label: "Contry",
         type: "text",
         placeholder: "India"
     },
+    {
+        id: "city",
+        label: "City",
+        type: "text",
+        placeholder: "wonder land"
+    }
 ]
 
-export const productInputs = [
+export const hotelInputs = [
     {
-        id: 1,
-        label: "Title",
+        id: "name",
+        label: "Name",
         type: "text",
-        placeholder: "Product Name"
+        placeholder: "My Hotel"
     },
     {
-        id: 2,
+        id: "type",
+        label: "Type",
+        type: "text",
+        placeholder: "hotel, guesthouse etc..."
+    },
+    {
+        id: "city",
+        label: "City",
+        type: "text",
+        placeholder: "city name"
+    },
+    {
+        id: "address",
+        label: "Address",
+        type: "text",
+        placeholder: "address"
+    },
+    {
+        id: "distance",
+        label: "Distance from city center",
+        type: "text",
+        placeholder: "distance"
+    },
+    {
+        id: "title",
+        label: "Title",
+        type: "text",
+        placeholder: "Title"
+    },
+    {
+        id: "desc",
         label: "Description",
         type: "text",
         placeholder: "Description"
     },
     {
-        id: 3,
-        label: "Category",
-        type: "text",
-        placeholder: "Computers"
-    },
-    {
-        id: 4,
+        id: "cheapestPrice",
         label: "Price",
         type: "text",
-        placeholder: "50000"
+        placeholder: "Price"
+    },
+];
+
+
+export const roomInputs = [
+    {
+        id: "title",
+        label: "Title",
+        type: "text",
+        placeholder: "2 bed room"
     },
     {
-        id: 5,
-        label: "Stock",
+        id: "desc",
+        label: "Description",
         type: "text",
-        placeholder: "In stock"
+        placeholder: "King size bed, 1 bathroom"
     },
-]
+    {
+        id: "price",
+        label: "Price",
+        type: "text",
+        placeholder: "Rs 900"
+    },
+    {
+        id: "maxPeople",
+        label: "Max People",
+        type: "number",
+        placeholder: "2"
+    }
+];

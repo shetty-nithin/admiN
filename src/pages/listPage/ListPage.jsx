@@ -3,13 +3,13 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from  "../../components/navbar/Navbar";
 import DataTable from "../../components/dataTable/DataTable";
 
-const ListPage = ({columnValue, rowValue, createNew}) => {
+const ListPage = ({columnValue}) => {
     return (
         <div className="listPage">
             <Sidebar/>
             <div className="listContainer">
                 <Navbar/>
-                <DataTable column={columnValue} row={rowValue} createNew={createNew}/>
+                <DataTable column={columnValue}/>
             </div>
         </div>
     )
