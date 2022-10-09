@@ -7,6 +7,12 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 
 const Featured = () => {
+    const thisWeek = 101428;
+    const target = 119732;
+    const lastWeek = 108756;
+    const lastMonth = 3567866;
+    const percent = ((thisWeek*100)/target).toFixed(2);
+
     return (
         <div className="featured">
             <div className="top">
@@ -15,31 +21,31 @@ const Featured = () => {
             </div>
             <div className="bottom">
                 <div className="featuredChart">
-                    <CircularProgressbar  value={65} text={"65%"} strokeWidth={8}/>
+                    <CircularProgressbar  value={percent} text={`${percent}%`} strokeWidth={8}/>
                 </div>
                 <p className="title">Total sales made today</p>
-                <p className="amount">Rs 428</p>
+                <p className="amount">Rs 119428</p>
                 <p className="desc">Previous transaction is in processing. Last payment may not be included.</p>
                 <div className="summary">
                     <div className="item">
                         <div className="itemTitle">Target</div>
                         <div className="itemResult negative">
                             <KeyboardArrowDownIcon fontSize="small"/>
-                            <div className="resultAmount">Rs 12.4k</div>
+                            <div className="resultAmount">Rs {target/1000}k</div>
                         </div>
                     </div>
                     <div className="item">
                         <div className="itemTitle">Last Week</div>
                         <div className="itemResult negative">
                             <KeyboardArrowDownIcon fontSize="small"/>
-                            <div className="resultAmount">Rs 12.4k</div>
+                            <div className="resultAmount">Rs {lastWeek/1000}k</div>
                         </div>
                     </div>
                     <div className="item">
                         <div className="itemTitle">Last Month</div>
                         <div className="itemResult positive">
                             <KeyboardArrowUpIcon fontSize="small"/>
-                            <div className="resultAmount">Rs 12.4k</div>
+                            <div className="resultAmount">Rs {lastMonth/1000}k</div>
                         </div>
                     </div>
                 </div>

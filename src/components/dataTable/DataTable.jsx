@@ -11,9 +11,10 @@ const DataTable = ({column}) => {
     const location = useLocation();
     const path = location.pathname.split("/")[1];
     
-    const { data, loading, error } = useFetch(`/v1/${path}`);
-    const [list, setList] = useState([]);
     
+    let { data } = useFetch(`/v1/${path}`);
+    const [list, setList] = useState([]);
+
     useEffect(() => {
         setList(data);
     }, [data]);
@@ -32,22 +33,21 @@ const DataTable = ({column}) => {
         {field: "action", headerName: "Action", width: 200, renderCell:(params)=>{
             return (
                 <div className="cellAction">
-                    <Link to="/users/test" style={{textDecoration:"none"}}>
-                        <div className="viewButton">View</div>
+                    <Link to={`/${path}/${params.row._id}`} style={{textDecoration:"none"}}>
+                        {path !== "bookings" && <div className="viewButton">View</div>}
                     </Link>
                     <div className="deleteButton" onClick={()=>handleDelete(params.row._id)}>Delete</div>
                 </div>
             )
         }}
     ]
-    console.log(list);
     return (
         <div className="datatable">
             <div className="dataTableTitle">
                 {path}
-                <Link to={`/${path}/new`} className="link">
+                {path !== "bookings" && <Link to={`/${path}/new`} className="link">
                     Add New
-                </Link>
+                </Link>}
             </div>
             <DataGrid
                 className="datagrid"

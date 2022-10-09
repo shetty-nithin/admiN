@@ -102,7 +102,7 @@ export const bookingColumns = [
         width: 200
     },
     {
-        field: "user",
+        field: "userId",
         headerName: "User",
         width: 150
     },
@@ -117,7 +117,7 @@ export const bookingColumns = [
         width: 150
     },
     {
-        field: "roomNumbers",
+        field: "roomNumbers.number",
         headerName: "Rooms",
         width: 100
     },
@@ -131,4 +131,9 @@ export const bookingColumns = [
         headerName: "Check-Out",
         width: 100
     },
+    {
+        field: "totalCost",
+        headerName: "Amount (Rs)",
+        width: 100
+    }
 ]

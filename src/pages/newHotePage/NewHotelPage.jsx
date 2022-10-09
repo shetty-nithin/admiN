@@ -14,7 +14,7 @@ const NewHotelPage = () => {
     const [rooms, setRooms] = useState([]);
     const navigate = useNavigate();
 
-    const { data, loading, error } = useFetch("/v1/rooms");
+    const { data, loading } = useFetch("/v1/rooms");
 
     const handleChange = (e) => {
         setInfo(prev => ({...prev, [e.target.id]: e.target.value}))

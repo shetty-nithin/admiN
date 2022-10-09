@@ -1,7 +1,6 @@
 import "./NewRoomPage.scss";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import DriveFolderUploadeOutLinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import { roomInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
@@ -15,7 +14,7 @@ const NewRoomPage = () => {
     const [rooms, setRooms] = useState([undefined]);
     const navigate = useNavigate();
 
-    const { data, loading, error } = useFetch("/v1/hotels");
+    const { data, loading } = useFetch("/v1/hotels");
 
     const handleChange = (e) => {
         setInfo(prev => ({...prev, [e.target.id]: e.target.value}))
