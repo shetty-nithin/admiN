@@ -4,7 +4,6 @@ module.exports = function(app){
     app.use(
         '/v1',
         createProxyMiddleware({ target: "https://aqueous-tor-55678.herokuapp.com/roomz/api", changeOrigin: true})
-        // createProxyMiddleware({ target: "http://localhost:8080/roomz/api"})
     )
 }
     
