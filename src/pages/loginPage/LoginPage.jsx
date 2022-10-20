@@ -23,7 +23,6 @@ const LoginPage = () => {
 
         try {
             const res = await axios.post("/v1/auth/signin", credentials);
-            console.log(res.data.details);
             if(res.data.isAdmin){
                 dispatch({type: "LOGIN_SUCCESS", payload: res.data.details});
                 navigate("/");
