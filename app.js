@@ -9,10 +9,9 @@ if(process.env.NODE_ENV === "production"){
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
     })
-}
-
+}   
 
 app.listen(PORT, (err) => {
     if(err) return console.log("error is : ", err);
-    console.log("admin server is up.");
+    console.log("admin server is up on port : ", PORT);
 })
