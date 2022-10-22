@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# [admiN](https://roomzadmin.herokuapp.com/) : admin panel for roomz.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Available Scripts
+<br/>
 
-In the project directory, you can run:
+## About The Project
+This is an admin panel for [roomZ.com](https://roomzdotcom.herokuapp.com/) website. An admin can login to the this website and perform the operations
+<br/>
 
-### `npm start`
+### Features : 
+* Admin can login to/logout from the predefined admin account.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Admin can perform CRUD operations on users/hotels/rooms/bookings.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Built with : 
 
-### `npm test`
+* [![MongoDB][MongoDB]][MongoDB-url]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [![Express.js][Express.js]][Express-url]
 
-### `npm run build`
+* [![React.js][React.js]][React-url]
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [![Node.js][Node.js]][Node-url]
+<br/>
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Run the following command in the terminal to clone the repository
+   ```sh
+   git clone https://github.com/shetty-nithin/admiN.git
+   ```
 
-### `npm run eject`
+2. Go inside the root folder
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Install NPM packages
+   ```
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. For the development mode, change the start script from __"node app.js"__ to __"react-scripts start"__
+   ```javascript
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    }
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Run the server
+   ```javascript
+   npm start
+   ```
+<br/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Demo
 
-## Learn More
+#### Admin Interface <br/><br/>
+https://user-images.githubusercontent.com/62413993/197358282-9ab6ecb5-d062-48af-9f0b-612f81681c96.mp4
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- MARKDOWN LINKS -->
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-url]: https://github.com/github_username/repo_name/network/members
 
-### Code Splitting
+[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-url]: https://github.com/github_username/repo_name/issues
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=0072b1
+[linkedin-url]: https://www.linkedin.com/in/shetty-nithin/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[MongoDB]: https://img.shields.io/badge/MongoDB-589636?style=for-the-badge&logo=mongodb&logoColor=white
+[MongoDB-url]: https://www.mongodb.com/
 
-### Making a Progressive Web App
+[Express.js]: https://img.shields.io/badge/Express.js-D1D3D4?style=for-the-badge&logo=express&logoColor=4FC08D
+[Express-url]: https://expressjs.com/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[React.js]: https://img.shields.io/badge/React.js-FFFFFF?style=for-the-badge&logo=react&logoColor=20F0F7
+[React-url]: https://reactjs.org/
 
-### Advanced Configuration
+[Node.js]: https://img.shields.io/badge/Node.js-215732?style=for-the-badge&logo=nodedotjs&logoColor=61DAFB
+[Node-url]: https://nodejs.org/en/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
