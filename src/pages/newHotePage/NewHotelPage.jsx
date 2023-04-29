@@ -5,8 +5,9 @@ import DriveFolderUploadeOutLinedIcon from "@mui/icons-material/DriveFolderUploa
 import { useState } from "react";
 import { hotelInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { makeRequest } from "../../axios";
 
 const NewHotelPage = () => {
     const [files, setFiles] = useState("");
@@ -41,7 +42,7 @@ const NewHotelPage = () => {
             }));
             
             const newHotel = {...info, rooms, photos:list};
-            await axios.post("/v1/hotels", newHotel);
+            await makeRequest.post("/v1/hotels", newHotel);
             navigate("/hotels");
         }
         catch (err) {

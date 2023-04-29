@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch"
 import { useEffect } from "react";
-import axios from "axios";
+import { makeRequest } from "../../axios.js"
 
 
 const DataTable = ({column}) => {
@@ -21,7 +21,7 @@ const DataTable = ({column}) => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`/v1/${path}/${id}`);
+            await makeRequest.delete(`/v1/${path}/${id}`);
             setList(list.filter(item => item._id !== id) );
         }
         catch (err) {

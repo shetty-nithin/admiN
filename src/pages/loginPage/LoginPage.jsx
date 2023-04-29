@@ -1,5 +1,5 @@
 import "./LoginPage.scss";
-import axios from "axios";
+import { makeRequest } from "../../axios.js"
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -22,7 +22,7 @@ const LoginPage = () => {
         dispatch({type: "LOGIN_START"});
 
         try {
-            const res = await axios.post("/v1/auth/signin", credentials);
+            const res = await makeRequest.post("/v1/auth/signin", credentials);
             if(res.data.isAdmin){
                 dispatch({type: "LOGIN_SUCCESS", payload: res.data.details});
                 navigate("/");

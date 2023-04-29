@@ -4,6 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import DriveFolderUploadeOutLinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
+import { makeRequest } from "../../axios.js"
 import { userInputs } from "../../formSource";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +28,7 @@ const NewPage = () => {
             const { url } = uploadRes.data;
 
             const newUser = { ...info, img: url};
-            await axios.post("/v1/auth/signup", newUser);
+            await makeRequest.post("/v1/auth/signup", newUser);
             navigate("/users");
         }
         catch (err) {

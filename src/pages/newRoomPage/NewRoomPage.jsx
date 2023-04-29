@@ -4,7 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import { useState } from "react";
 import { roomInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
-import axios from "axios";
+import { makeRequest } from "../../axios";
 import { useNavigate } from "react-router-dom";
 
 
@@ -25,7 +25,7 @@ const NewRoomPage = () => {
         const roomNumbers = rooms.split(",").map(room => ({number: room}));
         
         try {
-            await axios.post(`/v1/rooms/${hotelId}`, {...info, roomNumbers});
+            await makeRequest.post(`/v1/rooms/${hotelId}`, {...info, roomNumbers});
             navigate("/rooms");
         }
         catch (err) {

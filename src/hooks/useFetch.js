@@ -1,5 +1,5 @@
+import { makeRequest } from "../axios.js"
 const { useState, useEffect } = require("react");
-const axios = require("axios");
 
 const useFetch = (url) => {
     const [data, setData] = useState([]);
@@ -11,7 +11,7 @@ const useFetch = (url) => {
             setLoading(true);
 
             try {
-                const res = await axios.get(url);
+                const res = await makeRequest.get(url);
                 setData(res.data);
             }
             catch (err) {
@@ -27,7 +27,7 @@ const useFetch = (url) => {
         setLoading(true);
         
         try {
-            const res = await axios.get(url);
+            const res = await makeRequest.get(url);
             setData(res.data);
         }
         catch (err) {
